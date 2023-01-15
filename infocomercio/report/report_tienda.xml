@@ -1,0 +1,93 @@
+<odoo>
+    <data>
+        <report
+            id="infocomercio.report_tienda"
+            model="infocomercio.tienda"
+            string="Infocomercio tienda"
+            name="infocomercio.report_tienda_view"
+            file="infocomercio.report_tienda_view"
+            report_type="qweb-pdf"/>
+
+        <template id="report_tienda_view">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="tienda">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h1 t-field="tienda.name"/>
+                            
+                            <div>
+                                <strong>Fecha de apertura: </strong>
+                                <span t-field="tienda.fecha_apertura"/>
+                            </div>
+
+                            <div>
+                                <strong>Tamaño: </strong>
+                                <span t-field="tienda.size"/>
+                            </div>
+                                        
+                            <div>
+                                <strong>Valoración: </strong>
+                                <span t-field="tienda.nota_media"/>
+                            </div>
+
+                            <div>
+                                <strong>Aforo: </strong>
+                                <span t-field="tienda.aforo"/>
+                            </div>
+                                    
+                            <div>
+                                <strong>Recomendación: </strong>
+                                <span t-field="tienda.recomendacion"/>
+                            </div>
+                            
+                            <br />  
+                            <span t-foreach="tienda.compania_envios" t-as="envio">
+                                <div>
+                                    <div>
+                                        <strong>Compañía de transporte: </strong>
+                                        <h4 t-field="tienda.compania_envios"/>
+                                    </div>
+                                    <div>
+                                        <strong>Dirección: </strong>
+                                        <span t-field="envio.direccion"/>
+                                        <strong>Teléfono: </strong>
+                                        <span t-field="envio.telefono"/>
+                                        <strong>Eficiencia: </strong>
+                                        <span t-field="envio.eficiencia_envios"/>
+                                    </div>
+                                </div>
+                            </span>       
+                            
+                            <br />
+                            <div>
+                                <strong>Lista de seguros soportados: </strong>
+                                <!--<span t-field="tienda.compania_seguros"/>-->
+                            </div>
+                            <span t-foreach="tienda.compania_seguros" t-as="seguros">
+                                <div>
+                                    <div>
+                                        <h4 t-field="seguros.name"/>
+                                    </div>
+                                    <div>
+                                        <strong>Dirección: </strong>
+                                        <span t-field="seguros.direccion"/>
+                                        <strong>Teléfono: </strong>
+                                        <span t-field="seguros.telefono"/>
+                                    </div>
+                                    <div>
+                                        <strong>Tipo: </strong>
+                                        <span t-field="seguros.tipo"/>
+                                        <strong>Cobertura del seguro: </strong>
+                                        <span t-field="seguros.cobertura"/>
+                                    </div>
+                                    <br />
+                                </div>
+                            </span>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

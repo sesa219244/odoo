@@ -1,0 +1,95 @@
+<odoo>
+    <data>
+        <report
+            id="infocomercio.report_envio"
+            model="infocomercio.envio"
+            string="Infocomercio envio"
+            name="infocomercio.report_envio_view"
+            file="infocomercio.report_envio_view"
+            report_type="qweb-pdf"/>
+
+        <template id="report_envio_view">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="envio">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h1 t-field="envio.name"/>
+
+                            <div>
+                                <strong>Dirección: </strong>
+                                <span t-field="envio.direccion"/>
+                            </div>
+
+                            <div>
+                                <strong>Teléfono: </strong>
+                                <span t-field="envio.telefono"/>
+                            </div>
+
+                            <div>
+                                <strong>Eficiencia de envios: </strong>
+                                <span t-field="envio.eficiencia_envios"/>
+                            </div>
+
+                            <br />
+                            <div>
+                                <strong>Compañía de Seguros</strong>
+                                <!--<span t-field="envio.compania_seguros"/>-->
+                            </div>
+
+                            <span t-foreach="envio.compania_seguros" t-as="seguros">
+                                <div>
+                                    <div>
+                                        <h4 t-field="seguros.name"/>
+                                    </div>
+
+                                    <div>
+                                        <strong>Dirección: </strong>
+                                        <span t-field="seguros.direccion"/>
+                                        <strong>Telefono</strong>
+                                        <span t-field="seguros.telefono"/>
+                                    </div>
+                                    <div>
+                                        <strong>Tipo: </strong>
+                                        <span t-field="seguros.tipo"/>
+                                        <strong>Cobertura del seguro: </strong>
+                                        <span t-field="seguros.cobertura"/>
+                                    </div>
+                                    <br />
+                                </div>
+                            </span>
+
+                            <div>
+                                <strong>Lista de tiendas: </strong>
+                                <!--<span t-field="envio.lista_tiendas"/>-->
+                            </div>
+
+                            <span t-foreach="envio.lista_tiendas" t-as="tienda">
+                                <div>
+                                    <div>
+                                        <h4 t-field="tienda.name"/>
+                                    </div>
+                                    <div>
+                                        <strong>fecha de apertura: </strong>
+                                        <span t-field="tienda.fecha_apertura"/>
+                                        <strong>, tamaño: </strong>
+                                        <span t-field="tienda.size"/>
+                                        <strong>, valoración: </strong>
+                                        <span t-field="tienda.nota_media"/>
+                                        <strong>, aforo: </strong>
+                                        <span t-field="tienda.aforo"/>
+                                    </div>
+                                    <div>
+                                        <strong>Recomendación: </strong>
+                                        <span t-field="tienda.recomendacion"/>
+                                    </div>
+                                    <br />
+                                </div>
+                            </span>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

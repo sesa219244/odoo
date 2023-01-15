@@ -1,0 +1,95 @@
+<odoo>
+    <data>
+        <report
+            id="infocomercio.report_seguros"
+            model="infocomercio.seguros"
+            string="Infocomercio seguros"
+            name="infocomercio.report_seguros_view"
+            file="infocomercio.report_seguros_view"
+            report_type="qweb-pdf"/>
+
+        <template id="report_seguros_view">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="seguros">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h1 t-field="seguros.name"/>
+
+                            <div>
+                                <strong>Dirección: </strong>
+                                <span t-field="seguros.direccion"/>
+                            </div>
+
+                            <div>
+                                <strong>Teléfono: </strong>
+                                <span t-field="seguros.telefono"/>
+                            </div>
+
+                            <div>
+                                <strong>Tipo: </strong>
+                                <span t-field="seguros.tipo"/>
+                            </div>
+
+                            <div>
+                                <strong>Cobertura del seguro: </strong>
+                                <span t-field="seguros.cobertura"/>
+                            </div>
+                            
+                            <br />
+                            <div>
+                                <strong>Lista de tiendas inscritas a la aseguradora: </strong>
+                                <!--<span t-field="seguro.lista_tiendas"/>-->
+                            </div>
+                            <span t-foreach="seguros.lista_tiendas" t-as="tienda">
+                                <div>
+                                    <div>
+                                        <h4 t-field="tienda.name"/>
+                                    </div>
+                                    <div>
+                                        <strong>fecha de apertura: </strong>
+                                        <span t-field="tienda.fecha_apertura"/>
+                                        <strong>, tamaño: </strong>
+                                        <span t-field="tienda.size"/>
+                                        <strong>, valoración: </strong>
+                                        <span t-field="tienda.nota_media"/>
+                                        <strong>, aforo: </strong>
+                                        <span t-field="tienda.aforo"/>
+                                    </div>
+                                    <div>
+                                        <strong>Recomendación: </strong>
+                                        <span t-field="tienda.recomendacion"/>
+                                    </div>
+                                    <br />
+                                </div>
+                            </span>
+
+                            <div>
+                                <strong>Lista de transportistas inscritos a la aseguradora: </strong>
+                                <!--<span t-field="seguro.lista_envios"/>-->
+                            </div>
+                            <span t-foreach="seguros.lista_envios" t-as="envio">
+                                <div>
+                                    <div>
+                                        <h4 t-field="envio.name"/>
+                                    </div>
+                                    <div>
+                                        <strong>Dirección: </strong>
+                                        <span t-field="envio.direccion"/>
+                                        <strong>, teléfono: </strong>
+                                        <span t-field="envio.telefono"/>
+                                    </div>
+                                    <div>
+                                        <strong>Eficiencia del envíos: </strong>
+                                        <span t-field="envio.eficiencia_envios"/>
+                                    </div>
+                                    <br />
+                                </div>
+                            </span>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
