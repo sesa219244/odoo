@@ -1,0 +1,135 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+  
+    <record model="ir.ui.view" id="barrio1.tienda_tree">
+      <field name="name">barrio1.tienda_tree</field>
+      <field name="model">barrio1.tienda</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="fecha_apertura"/>
+          <field name="tamaño"/>
+          <field name="calificacion"/>
+          <field name="aforo"/>
+          <field name="recomendacion"/>
+          <field name="envios"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="barrio1.tienda_form">
+      <field name="name">barrio1.tienda_form</field>
+      <field name="model">barrio1.tienda</field>
+      <field name="arch" type="xml">
+        <form>
+          <group colspan="2" col="2">
+            <field name="name"/>
+            <field name="fecha_apertura"/>
+            <field name="tamaño"/>
+            <field name="calificacion"/>
+            <field name="aforo"/>
+            <field name="recomendacion"/>
+            <field name="envios">
+              <tree>
+                <field name="nombre"/>
+                <field name="direccion"/>
+                <field name="telefono"/>
+                <field name="eficiencia"/>
+                <field name="comentarios"/>
+              </tree>
+            </field>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="barrio1.envio_tree">
+      <field name="name">barrio1.envio_tree</field>
+      <field name="model">barrio1.envio</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="direccion"/>
+          <field name="telefono"/>
+          <field name="eficiencia"/>
+          <field name="comentarios"/>
+          <field name="tiendas"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="barrio1.envio_form">
+      <field name="name">barrio1.envio_form</field>
+      <field name="model">barrio1.envio</field>
+      <field name="arch" type="xml">
+        <form>
+          <group colspan="2" col="2">
+            <field name="nombre"/>
+            <field name="direccion"/>
+            <field name="telefono"/>
+            <field name="eficiencia"/>
+            <field name="comentarios"/>
+            <field name="tiendas">
+              <tree>
+                <field name="name"/>
+                <field name="fecha_apertura"/>
+                <field name="tamaño"/>
+                <field name="calificacion"/>
+                <field name="aforo"/>
+                <field name="recomendacion"/>
+              </tree>
+            </field>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <!-- Vista de una busqueda personalizada -->
+
+    <record model="ir.ui.view" id="barrio1.tienda_search_view">
+      <field name="name">barrio1.tienda_search</field>
+      <field name="model">barrio1.tienda</field>
+      <field name="arch" type="xml">
+        <search>
+          <filter name="Tienda pequeña y muy recomendable1" domain="[('tamaño','=','0'),('calificacion','&gt;','7'),('calificacion','&lt;','10')]"/>
+        </search>
+      </field>
+    </record> 
+    
+    <record model="ir.ui.view" id="barrio1.envio_search_view">
+      <field name="name">barrio1.envio_search</field>
+      <field name="model">barrio1.envio</field>
+      <field name="arch" type="xml">
+        <search>
+          <filter name="Eficiencia A ó B" domain="[('eficiencia','&gt;=','A'),('eficiencia','&lt;','C')]"/>
+        </search>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="barrio1.tienda_action_window">
+      <field name="name">barrio1.tienda_action_window</field>
+      <field name="res_model">barrio1.tienda</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="barrio1.envio_action_window">
+      <field name="name">barrio1.envio_action_window</field>
+      <field name="res_model">barrio1.envio</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="Barrio1" id="barrio1.menu_root" groups="barrio1_administrador,barrio1_usuario"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Tiendas" id="barrio1.tienda_menu" parent="barrio1.menu_root" action="barrio1.tienda_action_window" groups="barrio1_administrador,barrio1_usuario"/>
+    <menuitem name="Envios" id="barrio1.envio_menu" parent="barrio1.menu_root" action="barrio1.envio_action_window" groups="barrio1_administrador,barrio1_usuario"/>
+
+  </data>
+</odoo>
