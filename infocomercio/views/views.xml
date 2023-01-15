@@ -1,0 +1,197 @@
+<odoo>
+  <data>
+
+    <!-- explicit list view definition -->
+      <!-- vistas modelo tienda -->
+      <record model="ir.ui.view" id="infocomercio.tienda_tree">
+        <field name="name">infocomercio.tienda_tree</field>
+        <field name="model">infocomercio.tienda</field>
+        <field name="arch" type="xml">
+          <tree>
+            <field name="name"/>
+            <field name="fecha_apertura"/>
+            <field name="size"/>
+            <field name="nota_media"/>
+            <field name="aforo"/> <!-- Campo calculado -->
+            <field name="recomendacion"/> <!-- Campo calculado -->
+            <field name="compania_envios"/> <!-- Campo relacionado -->
+            <field name="compania_seguros"/> <!-- Campo relacionado -->
+          </tree>    
+        </field>
+      </record>
+    
+      <record model="ir.ui.view" id="infocomercio.tienda_form">
+        <field name="name">infocomercio.tienda_form</field>
+        <field name="model">infocomercio.tienda</field>
+        <field name="arch" type="xml">
+          <form>
+            <group colspan="2" col="2">
+              <field name="name"/>
+              <field name="fecha_apertura"/>
+              <field name="size"/>
+              <field name="nota_media"/>
+              <field name="aforo"/> <!-- Campo calculado -->
+              <field name="recomendacion"/> <!-- Campo calculado -->
+              <field name="compania_envios"> <!-- Campo relacionado -->
+                <tree>
+                  <field name="name"/>
+                </tree>
+              </field>
+              <field name="compania_seguros"/> <!-- Campo relacionado -->
+            </group>
+          </form>
+        </field>
+      </record>
+      
+
+      <!-- vistas modelo envio -->
+      <record model="ir.ui.view" id="infocomercio.envio_tree">
+        <field name="name">infocomercio.envio_tree</field>
+        <field name="model">infocomercio.envio</field>
+        <field name="arch" type="xml">
+          <tree>
+            <field name="name"/>
+            <field name="direccion"/>
+            <field name="telefono"/>
+            <field name="eficiencia_envios"/> 
+            <field name="compania_seguros"/> <!-- Campo relacionado -->
+            <field name="lista_tiendas"/> <!-- Campo relacionado -->
+          </tree>    
+        </field>
+      </record>
+
+      <record model="ir.ui.view" id="infocomercio.envio_form">
+        <field name="name">infocomercio.envio_form</field>
+        <field name="model">infocomercio.envio</field>
+        <field name="arch" type="xml">
+          <form>
+            <group colspan="2" col="2">
+              <field name="name"/>
+              <field name="direccion"/>
+              <field name="telefono"/>
+              <field name="eficiencia_envios"/>
+              <field name="compania_seguros"> <!-- Campo relacionado -->
+                <tree>
+                  <field name="name"/>
+                </tree>
+              </field>
+              <field name="lista_tiendas"> <!-- Campo relacionado -->
+                <tree>
+                  <field name="name"/>
+                  <field name="fecha_apertura"/>
+                  <field name="size"/>
+                  <field name="nota_media"/>
+                </tree>
+              </field>
+            </group>
+          </form>
+        </field>
+      </record>
+
+    <!-- vistas modelo seguros -->
+    <record model="ir.ui.view" id="infocomercio.seguros_tree">
+      <field name="name">infocomercio.seguros_tree</field>
+      <field name="model">infocomercio.seguros</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="direccion"/>
+          <field name="telefono"/>
+          <field name="tipo"/> <!-- Campo calculado -->
+          <field name="cobertura"/> 
+          <field name="lista_tiendas"/> <!-- Campo relacionado -->
+          <field name="lista_envios"/> <!-- Campo relacionado -->
+        </tree>
+      </field>
+    </record>
+    
+    <record model="ir.ui.view" id="infocomercio.seguros_form">
+      <field name="name">infocomercio.seguros_form</field>
+      <field name="model">infocomercio.seguros</field>
+      <field name="arch" type="xml">
+        <form>
+          <group colspan="2" col="2">
+              <field name="name"/>
+              <field name="direccion"/>
+              <field name="telefono"/>
+              <field name="tipo"/> <!-- Campo calculado -->
+              <field name="cobertura"/>
+              <field name="lista_tiendas"/> <!-- Campo relacionado -->
+              <field name="lista_envios"/> <!-- Campo relacionado -->
+          </group>
+        </form>
+      </field>   
+    </record>
+
+    <!-- vista de una busqueda personalizada -->
+
+    <record model="ir.ui.view" id="infocomercio.tienda_search_view">
+      <field name="name">infocomercio.tienda_search</field>
+      <field name="model">infocomercio.tienda</field>
+      <field name="arch" type="xml">
+        <search>
+        <!-- las tiendas que sean medianas y muy recomendables (nota media mayor de 7) -->
+          <filter name="medianas y muy recomendables" domain="[('size','=','1'),('nota_media','&gt;','7'),('nota_media','&lt;','10')]"/>
+          <filter name="grandes y no recomendadas" domain="[('size','=','2'),('nota_media','&lt;','5')]"/>
+        </search>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+      <!-- Acción de ventana para el modelo tienda -->
+      <record model="ir.actions.act_window" id="infocomercio.tienda_action_window">
+        <field name="name">infocomercio.tienda_action_window</field>
+        <field name="res_model">infocomercio.tienda</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+
+      <!-- Acción de ventana para el modelo envio -->
+      <record model="ir.actions.act_window" id="infocomercio.envio_action_window">
+        <field name="name">infocomercio.envio_action_window</field>
+        <field name="res_model">infocomercio.envio</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+
+      <!-- Acción de ventana para el modelo seguros -->
+      <record model="ir.actions.act_window" id="infocomercio.seguros_action_window">
+        <field name="name">infocomercio.seguros_action_window</field>
+        <field name="res_model">infocomercio.seguros</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+
+    <!-- Top menu item -->
+
+      <menuitem name="Pequeño comercio" id="infocomercio.menu_root" groups="infocomercio_administrador,infocomercio_usuario"/>
+
+    <!-- menu categories  -->
+    
+      <menuitem name="Tiendas" id="infocomercio.tienda_menu" parent="infocomercio.menu_root" action="infocomercio.tienda_action_window" groups="infocomercio_administrador,infocomercio_usuario"/>
+      <menuitem name="Compañías envío" id="infocomercio.envio_menu" parent="infocomercio.menu_root" action="infocomercio.envio_action_window" groups="infocomercio_administrador,infocomercio_usuario"/>
+      <menuitem name="Compañías seguros" id="infocomercio.seguros_menu" parent="infocomercio.menu_root" action="infocomercio.seguros_action_window" groups="infocomercio_administrador,infocomercio_usuario"/>
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="infocomercio.action_server">
+      <field name="name">infocomercio server</field>
+      <field name="model_id" ref="model_infocomercio_infocomercio"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="infocomercio.menu_1_list" parent="infocomercio.menu_1"
+              action="infocomercio.action_window"/>
+    <menuitem name="Server to list" id="infocomercio" parent="infocomercio.menu_2"
+              action="infocomercio.action_server"/>
+-->
+  </data>
+</odoo>
