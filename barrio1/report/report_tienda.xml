@@ -1,0 +1,74 @@
+<odoo>
+    <data>
+        <report
+            id="barrio1.tienda_report"
+            model="barrio1.tienda"
+            string="barrio1.tienda"
+            name="barrio1.tienda_report_view"
+            file="barrio1.tienda_report_view"
+            report_type="qweb-pdf"/>
+
+        <template id="tienda_report_view">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="tienda">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h1 t-field="tienda.name"/>
+                            <div>
+                                <strong>Fecha de apertura: </strong>
+                                <span t-field="tienda.fecha_apertura"/>
+                            </div>
+                            <div>
+                                <strong>Tamaño: </strong>
+                                <span t-field="tienda.tamaño"/>
+                            </div>
+                            <div>
+                                <strong>Calificación: </strong>
+                                <span t-field="tienda.calificacion"/>
+                            </div>
+                            <div>
+                                <strong>Aforo: </strong>
+                                <span t-field="tienda.aforo"/>
+                            </div>
+                            <div>
+                                <strong>Recomendación: </strong>
+                                <span t-field="tienda.recomendacion"/>
+                            </div>
+
+                            <br />
+                            <div>
+                                <strong>Envíos</strong>
+                            </div>
+                            <span t-foreach="tienda.envios" t-as="envio">
+                                <div>
+                                    <div>
+                                        <h4 t-field="envio.nombre"/>
+                                    </div>
+                                    <div>
+                                        <strong>Dirección: </strong>
+                                        <span t-field="envio.direccion"/>
+                                    </div>
+                                    <div>
+                                        <strong>Teléfono: </strong>
+                                        <span t-field="envio.telefono"/>
+                                    </div>
+                                    <div>
+                                        <strong>Eficiencia: </strong>
+                                        <span t-field="envio.eficiencia"/>
+                                    </div>
+                                    <div>
+                                        <strong>Observaciones: </strong>
+                                        <span t-field="envio.tiendas"/>
+                                    </div>
+                                    <br />
+                                </div>
+                            </span>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>
