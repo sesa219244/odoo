@@ -1,0 +1,15 @@
+<odoo>
+
+    <data>
+        <record id="infocomercio_administrador" model="res.groups">
+            <field name="name">Infocomercio / Administrador </field>
+        </record>
+    </data>
+
+    <data>
+        <record id="infocomercio_usuario" model="res.groups">
+            <field name="name">Infocomercio / Usuario </field>
+        </record>
+    </data>
+
+</odoo>
