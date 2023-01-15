@@ -1,0 +1,270 @@
+<odoo>
+    <data noupdate='1'>
+
+        <!-- Registro 1 -->
+        <record model="infocomercio.seguros">
+            <field name="name">MAPFRE</field>
+            <field name="direccion">Askatasun Etorbidea, 51, 48902 Barakaldo, Bizkaia</field>
+            <field name="telefono">944180410</field>
+            <field name="cobertura">D</field>
+        </record>
+
+        <!-- Registro 2 -->
+        <record model="infocomercio.seguros">
+            <field name="name">Seguros Bilbao</field>
+            <field name="direccion">Askatasun Etorbidea, 41, 48901 Barakaldo, Bizkaia</field>
+            <field name="telefono">944 38 54 64</field>
+            <field name="cobertura">B</field>
+        </record>
+
+        <!-- Registro 3 -->
+        <record model="infocomercio.seguros">
+            <field name="name">Multiseguros S.A.</field>
+            <field name="direccion">Iparragirre Kalea, 8, 48901 Barakaldo, Bizkaia</field>
+            <field name="telefono">944 38 33 78</field>
+            <field name="cobertura">E</field>
+        </record>
+
+        <!-- Registro 4 -->
+        <record model="infocomercio.seguros">
+            <field name="name">Allianz</field>
+            <field name="direccion">La Bondad Kalea, 6, 48901 Barakaldo, Bizkaia</field>
+            <field name="telefono">944 38 69 02</field>
+            <field name="cobertura">A</field>
+        </record>
+
+        <!-- Registro 5 -->
+        <record model="infocomercio.seguros">
+            <field name="name">Seguros Pelayo</field>
+            <field name="direccion">Eguzkiagirre Kalea, 5, 48902 Barakaldo, Bizkaia</field>
+            <field name="telefono">944 37 23 59</field>
+            <field name="cobertura">C</field>
+        </record>
+
+        <!-- Registro 6 -->
+        <record model="infocomercio.seguros">
+            <field name="name">Reale Seguros</field>
+            <field name="direccion">Axular Kalea, 9, 48902 Barakaldo, Bizkaia</field>
+            <field name="telefono">944 18 17 16</field>
+            <field name="cobertura">C</field>
+        </record>
+
+        <!-- Registro 7 -->
+        <record model="infocomercio.seguros">
+            <field name="name">Santalucía Seguros</field>
+            <field name="direccion">San José Kalea, 20, Bajo, 48901 Barakaldo, Biscay</field>
+            <field name="telefono">944 18 00 50</field>
+            <field name="cobertura">E</field>
+        </record>
+
+        <!-- Registro 8 -->
+        <record model="infocomercio.seguros">
+            <field name="name">AXA</field>
+            <field name="direccion">Telleria Kalea, 1, 48903 Barakaldo, Bizkaia</field>
+            <field name="telefono">944 85 01 83</field>
+            <field name="cobertura">A</field>
+        </record>
+
+
+        <!-- Registro 1 -->
+        <record model="infocomercio.envio">
+            <field name="name">MRW</field>
+            <field name="direccion">Av. A. Miranda, 13</field>
+            <field name="telefono">944 37 96 20</field>
+            <field name="eficiencia_envios">A</field>
+            <field name="compania_seguros">1</field>
+        </record>
+
+        <!-- Registro 2 -->
+        <record model="infocomercio.envio">
+            <field name="name">NACEX</field>
+            <field name="direccion">Calle Gobela 6 esq, Eduardo Coste Kalea, 48930 Getxo, Biscay</field>
+            <field name="telefono">944 07 03 54</field>
+            <field name="eficiencia_envios">B</field>
+            <field name="compania_seguros">1</field>
+        </record>
+
+        <!-- Registro 3 -->
+        <record model="infocomercio.envio">
+            <field name="name">GLS Barakaldo</field>
+            <field name="direccion">Poligono Ibarzaharra manz. 9, pab. 27, 48510, Biscay</field>
+            <field name="telefono">946 02 23 20</field>
+            <field name="eficiencia_envios">B</field>
+            <field name="compania_seguros">6</field>
+        </record>
+
+        <!-- Registro 4 -->
+        <record model="infocomercio.envio">
+            <field name="name">Tour Mensajeros Bizkaia</field>
+            <field name="direccion">Nerbioi Kalea, 3, 48001 Bilbo, Bizkaia</field>
+            <field name="telefono">944 26 77 44</field>
+            <field name="eficiencia_envios">C</field>
+            <field name="compania_seguros">4</field>
+        </record>
+
+        <!-- Registro 5 -->
+        <record model="infocomercio.envio">
+            <field name="name">DHL Express</field>
+            <field name="direccion">Urkixo Zumarkalea, 21, Bajo Lonja 2 Izq, 48008 Bilbao, Biscay</field>
+            <field name="telefono">902 12 24 24</field>
+            <field name="eficiencia_envios">A</field>
+            <field name="compania_seguros">3</field>
+        </record>
+
+        <!-- Registro 6 -->
+        <record model="infocomercio.envio">
+            <field name="name">SEUR</field>
+            <field name="direccion">Av. A. Miranda, 3, 48902 Barakaldo, Biscay</field>
+            <field name="telefono">94 487 10 10</field>
+            <field name="eficiencia_envios">A</field>
+            <field name="compania_seguros">8</field>
+        </record>
+
+
+        <record model="infocomercio.tienda">
+            <field name="name">Tienda Kiabi BARAKALDO</field>
+            <field name="fecha_apertura">2022-12-11</field>
+            <field name="size">2</field>
+            <field name="nota_media">7.0</field>
+            <field name="compania_envios">6</field>
+            <field name="compania_seguros" eval="[(6, 0, [1,3,5,7])]"/>
+        </record>
+
+
+        <record model="infocomercio.tienda">
+            <field name="name">Nike Store Barakaldo</field>
+            <field name="fecha_apertura">2022-12-11</field>
+            <field name="size">1</field>
+            <field name="nota_media">9.0</field>
+            <field name="compania_envios">5</field>
+            <field name="compania_seguros" eval="[(6, 0, [2,4,6,8])]"/>
+        </record>
+
+        <record model="infocomercio.tienda">
+            <field name="name">Geographical Norway</field>
+            <field name="fecha_apertura">2022-12-11</field>
+            <field name="size">1</field>
+            <field name="nota_media">8.5</field>
+            <field name="compania_envios">4</field>
+            <field name="compania_seguros" eval="[(6, 0, [1,4,7])]"/>
+        </record>
+
+        <record model="infocomercio.tienda">
+            <field name="name">United Colors of Benetton</field>
+            <field name="fecha_apertura">2022-12-11</field>
+            <field name="size">1</field>
+            <field name="nota_media">8.0</field>
+            <field name="compania_envios">3</field>
+            <field name="compania_seguros" eval="[(6, 0, [2,5,8])]"/>
+        </record>
+
+        <record model="infocomercio.tienda">
+            <field name="name">Agora moda barakaldo</field>
+            <field name="fecha_apertura">2022-12-11</field>
+            <field name="size">0</field>
+            <field name="nota_media">7.0</field>
+            <field name="compania_envios">2</field>
+            <field name="compania_seguros" eval="[(6, 0, [1,5])]"/>
+        </record>
+
+        <record model="infocomercio.tienda">
+            <field name="name">CyA</field>
+            <field name="fecha_apertura">2022-12-11</field>
+            <field name="size">2</field>
+            <field name="nota_media">5.5</field>
+            <field name="compania_envios">1</field>
+            <field name="compania_seguros" eval="[(6, 0, [4,8])]"/>
+        </record>
+
+        <record model="infocomercio.tienda">
+            <field name="name">Adidas Store Baracaldo</field>
+            <field name="fecha_apertura">2022-12-11</field>
+            <field name="size">2</field>
+            <field name="nota_media">10.0</field>
+            <field name="compania_envios">1</field>
+            <field name="compania_seguros" eval="[(6, 0, [1,2,4,5,7,8])]"/>
+        </record>
+
+        <record model="infocomercio.tienda">
+            <field name="name">FANCY MODA Barakaldo</field>
+            <field name="fecha_apertura">2022-12-11</field>
+            <field name="size">0</field>
+            <field name="nota_media">6.5</field>
+            <field name="compania_envios">2</field>
+            <field name="compania_seguros" eval="[(6, 0, [1,2,4,5,7,8])]"/>
+        </record>
+    
+        <record model="infocomercio.tienda">
+            <field name="name">Bershka</field>
+            <field name="fecha_apertura">2022-12-11</field>
+            <field name="size">2</field>
+            <field name="nota_media">4.0</field>
+            <field name="compania_envios">3</field>
+            <field name="compania_seguros" eval="[(6, 0, [1,2,3,5,6,7])]"/>
+        </record>
+
+        <record model="infocomercio.tienda">
+            <field name="name">IKEA Barakaldo</field>
+            <field name="fecha_apertura">2022-12-11</field>
+            <field name="size">2</field>
+            <field name="nota_media">8.5</field>
+            <field name="compania_envios">4</field>
+            <field name="compania_seguros" eval="[(6, 0, [2,3,4,6,7,8])]"/>
+        </record>
+
+        <record model="infocomercio.tienda">
+            <field name="name">Fifty Outlet</field>
+            <field name="fecha_apertura">2022-12-11</field>
+            <field name="size">1</field>
+            <field name="nota_media">7.5</field>
+            <field name="compania_envios">5</field>
+            <field name="compania_seguros" eval="[(6, 0, [3,6])]"/>
+        </record>
+
+        <record model="infocomercio.tienda">
+            <field name="name">Calvin Klein Underwear</field>
+            <field name="fecha_apertura">2022-12-11</field>
+            <field name="size">1</field>
+            <field name="nota_media">8.0</field>
+            <field name="compania_envios">6</field>
+            <field name="compania_seguros" eval="[(6, 0, [3,6])]"/>
+        </record>
+
+        <record model="infocomercio.tienda">
+            <field name="name">Boston</field>
+            <field name="fecha_apertura">2022-12-11</field>
+            <field name="size">0</field>
+            <field name="nota_media">6.0</field>
+            <field name="compania_envios">2</field>
+            <field name="compania_seguros" eval="[(6, 0, [1,2,5,6])]"/>
+        </record>
+
+        <record model="infocomercio.tienda">
+            <field name="name">Decathlon Barakaldo (MegaPark)</field>
+            <field name="fecha_apertura">2022-12-11</field>
+            <field name="size">2</field>
+            <field name="nota_media">7.0</field>
+            <field name="compania_envios">5</field>
+            <field name="compania_seguros" eval="[(6, 0, [3,4,7,8])]"/>
+        </record>
+
+        <record model="infocomercio.tienda">
+            <field name="name">Bonita Ganga Barakaldo</field>
+            <field name="fecha_apertura">2022-12-11</field>
+            <field name="size">0</field>
+            <field name="nota_media">4.0</field>
+            <field name="compania_envios">3</field>
+            <field name="compania_seguros" eval="[(6, 0, [1,3,4,6,7])]"/>
+        </record>
+
+        <record model="infocomercio.tienda">
+            <field name="name">Calzedonia</field>
+            <field name="fecha_apertura">2022-12-11</field>
+            <field name="size">0</field>
+            <field name="nota_media">7.0</field>
+            <field name="compania_envios">6</field>
+            <field name="compania_seguros" eval="[(6, 0, [1,2,4,5,7,8])]"/>
+        </record>
+
+    </data>
+</odoo>
