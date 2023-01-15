@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+tienda_administrador,tienda_administrador,model_barrio1_tienda,barrio1_administrador,1,1,1,1
+tienda_usuario,tienda_ususario,model_barrio1_tienda,barrio1_usuario,1,0,0,0
+envio_administrador,envio_administrador,model_barrio1_envio,barrio1_administrador,1,1,1,1
+envio_usuario,envio_usuario,model_barrio1_envio,barrio1_usuario,1,0,0,0

@@ -1,0 +1,14 @@
+<odoo>
+
+    <data>
+        <record id="barrio1_administrador" model="res.groups">
+            <field name="name">Barrio1 / Administrador</field>
+        </record>
+    </data>
+
+    <data>
+        <record id="barrio1_usuario" model="res.groups">
+            <field name="name">Barrio1 / Usuario</field>
+        </record>
+    </data>
+</odoo>
