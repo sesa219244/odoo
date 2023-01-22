@@ -1,0 +1,141 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <!-- Vista del modelo Libreria formato tree -->
+    <record model="ir.ui.view" id="biblio.libreria_tree">
+      <field name="name">biblio.libreria_tree</field>
+      <field name="model">biblio.libreria</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="titulo"/>
+          <field name="autor"/>
+          <field name="isbn"/>
+          <field name="referencia"/>
+          <field name="tematica"/>
+          <field name="valoracion"/>
+          <field name="recomendacion"/>
+          <field name="editorial"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Vista del modelo libreria formato form -->
+    <record model="ir.ui.view" id="biblio.libreria_form">
+      <field name="name">biblio.libreria_form</field>
+      <field name="model">biblio.libreria</field>
+      <field name="arch" type="xml">
+        <form>
+          <group colspan="2" col="2">
+            <field name="titulo"/>
+            <field name="autor"/>
+            <field name="isbn"/>
+            <field name="referencia"/>
+            <field name="tematica"/>
+            <field name="valoracion"/>
+            <field name="recomendacion"/>
+            <field name="editorial">
+              <tree>
+                <field name="name"/>
+                <field name="facturacion"/>
+                <field name="observacion"/>
+              </tree>
+            </field>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <!-- Vista de BUSQUEDAS del modelo libreria -->
+    <record model="ir.ui.view" id="biblio.libreria_search_view">
+      <field name="name">biblio.libreria_search</field>
+      <field name="model">biblio.libreria</field>
+      <field name="arch" type="xml">
+        <search>
+          <filter name="Valoración entre 6 y menor de 7" domain="[('valoracion','&gt;=','6'),('valoracion','&lt;','7')]"/>
+          <filter name="Valoración entre 7 y menor de  8" domain="[('valoracion','&gt;=','7'),('valoracion','&lt;','8')]"/>
+          <filter name="Valoración mayor de 8" domain="[('valoracion','&gt;','8')]"/>
+        </search>
+      </field>
+    </record>
+
+    <!-- Vista del modelo Editoriales en formato tree -->
+    <record model="ir.ui.view" id="biblio.editoriales_tree">
+      <field name="name">biblio.editoriaes_tree</field>
+      <field name="model">biblio.editoriales</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="facturacion"/>
+          <field name="observacion"/>
+          <field name="libros"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Vista del modelo Editoriales en formato form -->
+    <record model="ir.ui.view" id="biblio.editoriales_form">
+      <field name="name">biblio.editoriaes_form</field>
+      <field name="model">biblio.editoriales</field>
+      <field name="arch" type="xml">
+        <form>
+          <group colspan="2" col="2">
+            <field name="name"/>
+            <field name="facturacion"/>
+            <field name="observacion"/>
+            <field name="libros">
+                <tree>
+                  <field name="titulo"/>
+                  <field name="autor"/>
+                  <field name="isbn"/>
+                  <field name="referencia"/>
+                  <field name="tematica"/>
+                  <field name="valoracion"/>
+                  <field name="recomendacion"/>
+                </tree>
+            </field>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="biblio.libreria_action_window">
+      <field name="name">biblio.libreria_action_window</field>
+      <field name="res_model">biblio.libreria</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="biblio.editoriales_action_window">
+      <field name="name">biblio.editoriales_action_window</field>
+      <field name="res_model">biblio.editoriales</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+
+    <menuitem
+      name="Biblio"
+      id="biblio.menu_root"
+      groups="biblio_administrador,biblio_usuario"/>
+
+    <!-- menu categories -->
+
+    <menuitem
+      name="Libreria"
+      id="biblio.libreria_menu"
+      parent="biblio.menu_root"
+      action="biblio.libreria_action_window"
+      groups="biblio_administrador,biblio_usuario"/>
+
+    <menuitem
+      name="Editoriales"
+      id="biblio.editoriales_menu"
+      parent="biblio.menu_root"
+      action="biblio.editoriales_action_window"
+      groups="biblio_administrador,biblio_usuario"/>
+
+  </data>
+</odoo>
