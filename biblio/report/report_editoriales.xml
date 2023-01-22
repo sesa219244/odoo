@@ -1,0 +1,71 @@
+<odoo>
+    <data>
+
+        <report
+            id="biblio.editoriales_report"
+            model="biblio.editoriales"
+            string="biblio.editoriales"
+            name="biblio.editoriales_report_view"
+            file="biblio.editoriales_report_view"
+            report_type="qweb-pdf"/>
+
+        <template id="editoriales_report_view">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="editoriales">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h1 t-field="editoriales.name"/>
+                            <div>
+                                <strong>Facturación: </strong>
+                                <span t-field="editoriales.facturacion"/>
+                            </div>
+                            <div>
+                                <strong>Observación: </strong>
+                                <span t-field="editoriales.observacion"/>
+                            </div>
+
+                            <br />
+                            <div>
+                                <strong>Libros: </strong>
+                            </div>
+                            <span t-foreach="editoriales.libros" t-as="libreria">
+                                <div>
+                                    <div>
+                                        <h4 f-field="libreria.titulo"/>
+                                    </div>
+                                    <div>
+                                        <strong>Autor: </strong>
+                                        <span t-field="libreria.autor"/>
+                                    </div>
+                                    <div>
+                                        <strong>ISBN: </strong>
+                                        <span t-field="libreria.isbn"/>
+                                    </div>
+                                    <div>
+                                        <strong>Referencia: </strong>
+                                        <span t-field="libreria.referencia"/>
+                                    </div>
+                                    <div>
+                                        <strong>Temática: </strong>
+                                        <span t-field="libreria.tematica"/>
+                                    </div>
+                                    <div>
+                                        <strong>Valoración: </strong>
+                                        <span t-field="libreria.valoracion"/>
+                                    </div>
+                                    <div>
+                                        <strong>Recomendación: </strong>
+                                        <span t-field="libreria.recomendacion"/>
+                                    </div>
+                                    <br />
+                                </div>
+                            </span>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>
