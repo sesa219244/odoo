@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+libreria_administrador,libreria_administrador,model_biblio_libreria,biblio_administrador,1,1,1,1
+libreria_usuario,libreria_usuario,model_biblio_libreria,biblio_usuario,1,0,0,0
+editoriales_administrador,editoriales_administrador,model_biblio_editoriales,biblio_administrador,1,1,1,1
+editoriales_usuario,editoriales_usuario,model_biblio_editoriales,biblio_usuario,1,0,0,0

@@ -1,0 +1,15 @@
+<odoo>
+
+    <data>
+        <record id="biblio_administrador" model="res.groups">
+            <field name="name">Biblio / Administrador </field>
+        </record>
+    </data>
+
+    <data>
+        <record id="biblio_usuario" model="res.groups">
+            <field name="name">Biblio / Usuario </field>
+        </record>
+    </data>
+
+</odoo>
